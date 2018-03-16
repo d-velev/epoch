@@ -66,6 +66,9 @@
             # allow group read for integration purposes  (e.g. logs)
             mode: 0750
 
+      - name: Update ulimit
+        command: ulimit -n 24576
+
       - name: Check if epoch binary exists
         stat:
           path: "{{ project_root }}/bin/epoch"
