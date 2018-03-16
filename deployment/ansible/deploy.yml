@@ -66,14 +66,6 @@
             # allow group read for integration purposes  (e.g. logs)
             mode: 0750
 
-      - name: Increate ulimit
-        pam_limits:
-          domain: epoch
-          limit_type: hard
-          limit_item: nproc
-          value: 24576
-        become: true
-        become_method: sudo
       - name: Check if epoch binary exists
         stat:
           path: "{{ project_root }}/bin/epoch"
